@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 8080;
+const port = 3000;
 
 const Question = require('./question');
 const Test = require('./test');
@@ -127,4 +127,4 @@ app.get("/:user_id/view_questions", (req, res)=>{
         })
 })
 
-app.listen(8080, ()=>{console.log("listening on port 8080")});
+app.listen(3000, ()=>{console.log(`listening on port ${port}`)});
