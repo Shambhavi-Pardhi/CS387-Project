@@ -5,7 +5,7 @@ import { HttpClient } from "@angular/common/http"
 })
 export class ApiService {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
 
   // see the params mentioned in the backend question file. write in format shown below.
@@ -14,5 +14,9 @@ export class ApiService {
   // }
   addQuestion(){
 
+  }
+
+  getUserType(auth_token:string){
+    return this.httpClient.get<any>("http://localhost:8080/api/getUserType", {params: {auth_token: auth_token}});
   }
 }

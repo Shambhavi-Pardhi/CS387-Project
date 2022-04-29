@@ -1,0 +1,74 @@
+<div id="header" class = "page">
+    <div class = "top">
+        <p style = "font-size: 80px; color: white; font-family: Arial, Helvetica, sans-serif; z-index: 100; position: absolute; left: 20vw">Learners' Space</p>
+    <mat-grid-list cols="3" style="padding-top: 100px;">
+        <mat-grid-tile>
+            <a href = "student#custom"><mat-card id = "customcard">
+                <mat-card-header>Custom-test</mat-card-header>
+                <mat-card-content>
+                    Curate your own test and see your performance on subjects you wish, in a format you choose.
+                </mat-card-content>
+            </mat-card></a>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <a href = "student#standard"><mat-card id = "standardcard">
+                <mat-card-header>Standard-test</mat-card-header>
+                <mat-card-content>
+                    Evaluate yourself on a standard test and analyse how you fare in such exams.
+                </mat-card-content>
+            </mat-card></a>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <a href = "student#results"><mat-card id = "resultscard">
+                <mat-card-header>
+                    RESULTS
+                </mat-card-header>
+                <mat-card-content>
+                    Check your results in previous exams and analyse each question.
+                </mat-card-content>
+            </mat-card></a>
+        </mat-grid-tile>
+    </mat-grid-list>
+    </div>
+    <div id="custom" class = "custom">
+        <div class = "box">
+            <form [formGroup]="customForm">
+                <mat-form-field>
+                    <mat-label>Subject</mat-label><br>
+                    <mat-select formControlName="topics">
+                        <mat-option *ngFor="let t of topics_list" [value]="t">{{t}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                <mat-label>Sub-Topic</mat-label>
+                    <mat-select formControlName="sub_topics">
+                        <mat-option *ngFor="let t of sub_topics_list" [value]="t">{{t}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Difficulty</mat-label>
+                    <mat-select formControlName="difficulty">
+                        <mat-option *ngFor="let d of difficulties" [value]="d">{{d}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Format</mat-label>
+                    <mat-select formControlName="format">
+                        <mat-option *ngFor="let format of formats" [value]="format">{{format}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Number of questions</mat-label>
+                    <input matInput type="number" formControlName="number_of_questions" placeholder="Number of questions">
+                </mat-form-field>
+                <button mat-raised-button color="primary" (click)="generatecustom()">Generate</button>
+            </form>
+              
+        </div>
+    </div>
+    <div id="standard" class = "standard"></div>
+    <div id="results" class = "results"></div>
+</div>
+
+

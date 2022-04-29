@@ -20,7 +20,7 @@ async function first_login(pool, req, response){
         }
     }
     console.log("here1");
-    const request = await https.request(options, (res)=>{
+    const request = await https.request(options, async(res)=>{
         let data = "";
         console.log(data);
         res.on('data', (chunk)=>{
