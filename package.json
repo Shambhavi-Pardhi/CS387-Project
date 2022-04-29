@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Shambhavi-Pardhi/CS387-Project#readme",
   "dependencies": {
+    "@angular/material": "^13.3.5",
     "express": "^4.17.3",
     "pg": "^8.7.3",
     "pg-pool": "^3.5.1",

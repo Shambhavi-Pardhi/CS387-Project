@@ -1,6 +1,7 @@
 const express = require('express');
 const Pool = require('pg').Pool;
 const question = require('./question');
+const login = require('./login');
 const QueryBuilder = require('pg-pool-query-builder');
 const bodyParser = require("body-parser");
 const app = express();
@@ -22,5 +23,11 @@ app.get("/api/add_question", (req, res)=>{
     console.log(x);
     res.send(x);
 })
+
+app.get("/api/login", (req, res)=>{
+    login.first_login(pool, req, res, (ans)=>{
+        res.send(ans);
+    });
+});
 
 app.listen(8080, ()=>{console.log("listening on port 8080")});

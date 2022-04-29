@@ -1,30 +1,32 @@
 const https = require('https')
 
-async function first_login(req, response, Session){
+async function first_login(pool, req, response){
     home_url = "localhost:4200";
     redirect_uri = "http://localhost:8080/api/login"
-    if(req.body.code == undefined){
+    if(req.query.code == undefined){
         response.redirect(home_url);
         return;
     }
     var AUTH_CODE = req.query.code;
     var request_query = "code="+AUTH_CODE+"&redirect_uri="+redirect_uri+"&grant_type=authorization_code";
-
+    console.log(AUTH_CODE);
     const options = {
         hostname: "gymkhana.iitb.ac.in",
         path: "/profiles/oauth/token",
         method: "POST",
         headers: {
-            "Authorization": "Basic MTNsZVN0ekdabHNiQXFrWTdtYnkzQUZJdWVvUjNIdGJBSWRmQVo1NDpYOXZqTzZYV0F3bG1YUWN1T0NWYzNVY0hiaVRpYWdNYm9tN2VSQXoxdlJqWXY2a1NkcE8wRjdPZUpkamFpUnFhNm9UVElmRWZVZVNYVlNHOEVuTnhMR0dCTWhSMWdUMkdGcVdjNE5qSkEycmQ1bXdjdGpWN255MjB1T1F1RzJaWQ==",
+            "Authorization": "Basic dWdsc0FXTW5kdkRBMW1McjNGb1QwR0JtbkFKZWtGMUJuRjV6ZUxpMDpTdExXYnNMaXRvYW1sSVBOeDdKTVhQNGdwd3RZRlI5cUN6eVJ6cFhQSThyQU8zaWVDaG1aM2taWVlqRFJJb1FHeVFCd0hZTGZuUTFWUWx2bFA2alpoaWxDa0l5N2FUNW13RkR4cHByNlN0cVdGVThrM2hzZ09EQ0kxU0pCMWlUcA==",
 			'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
         }
     }
-
-    const request = https.request(options, (res)=>{
+    console.log("here1");
+    const request = await https.request(options, (res)=>{
         let data = "";
+        console.log(data);
         res.on('data', (chunk)=>{
             data+=chunk;
         })
+        console.log(data);
         res.on('end', ()=>{
             var responseResult;
 			try {
@@ -45,7 +47,8 @@ async function first_login(req, response, Session){
                 }
             };
 
-            const user_data = https.request(options2, (res)=>{
+            const user_data = await https.request(options2, (res)=>{
+                console.log(here);
                 let data = "";
                 res.on('data', (chunk)=>{
                     data+=chunk;
@@ -61,6 +64,8 @@ async function first_login(req, response, Session){
                     if(responseResult.access_token == undefined){
                         return response.redirect(home_url);
                     }
+                    console.log(responseResult, "lalalalal");
+                    response.redirect(home_url);
                     // use user data here
                     // TO-DO
                     // 1) return the type of user to differentiate between student and prof
@@ -71,6 +76,7 @@ async function first_login(req, response, Session){
             })
         })
     })
+    console.log("lalala");
 }
 
 // TO-DO
@@ -96,3 +102,12 @@ function re_login(req, res){
 function confirm_type(type, access_token){
 
 }
+
+module.exports = {first_login, re_login, confirm_type};
+
+
+
+const https = require('https');
+
+
+
