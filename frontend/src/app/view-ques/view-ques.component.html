@@ -1,0 +1,13 @@
+<h3>Welcome!!</h3>
+
+<div class="questions">
+  <div *ngFor="let que of questions.ques_list; let i = index" [attr.data-index]="i" class="que">
+    <mat-nav-list>
+      <a mat-list-item href="http://localhost:4200/qid/stats" >
+        {{que.text}}
+      </a>
+      <button class="btn btn-success" (click)="update()">Update Question</button>
+      <button class="btn btn-danger" (click)="delete()">Delete Question</button>
+    </mat-nav-list>
+  </div>
+</div>

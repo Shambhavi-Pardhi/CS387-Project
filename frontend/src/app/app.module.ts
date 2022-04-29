@@ -9,22 +9,43 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { NgxSimpleCountdownModule } from 'ngx-simple-countdown';
 import { ApiService } from './api.service';
 import { LoggingService } from './logging.service';
+import { PiechartComponent } from './piechart/piechart.component';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { ViewQuesComponent } from './view-ques/view-ques.component';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import {MatTableModule} from '@angular/material/table'
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ExamComponent
+    ExamComponent,
+    PiechartComponent,
+    ViewQuesComponent,
+  ],
+  exports: [
+    AppComponent, 
+    LoginComponent,
+    ExamComponent,
+    PiechartComponent, 
+    ViewQuesComponent,
   ],
   imports: [
     MatCardModule,
     MatGridListModule,
     NgxSimpleCountdownModule,
     BrowserModule,
+    HighchartsChartModule,
+    MatListModule,
+    MatIconModule,
+    MatTableModule,
     RouterModule.forRoot([
       { path: '', component: AppComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'exam', component: ExamComponent }
+      { path: 'exam', component: ExamComponent },
+      { path: 'qid/stats', component: PiechartComponent },
+      { path: 'view-ques', component: ViewQuesComponent }
     ])
   ],
   providers: [

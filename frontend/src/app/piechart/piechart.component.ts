@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
 import * as Highcharts from 'highcharts';
 
 
@@ -18,16 +17,11 @@ Accessibility(Highcharts);
 
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-piechart',
+  templateUrl: './piechart.component.html',
+  styleUrls: ['./piechart.component.css']
 })
-
-
-export class AppComponent implements OnInit {
-
-  // constructor(private router: Router){}
-  // title = '';
+export class PiechartComponent implements OnInit {
 
   public options: any = {
     chart: {
@@ -81,4 +75,4 @@ export class AppComponent implements OnInit {
     Highcharts.chart('container', this.options);
   }
 
- }
+}
