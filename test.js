@@ -88,6 +88,104 @@ const generateCustomTest = async (req, topic, subtopic, difficulty, type_of_ques
     })
 }
 
+const getStandardTests = (req, test_type) => {
+    if(test_type == undefined){
+        throw "UNDEFINED INPUT";
+    }
+
+    switch(test_type){
+        case 'JEE-Mains':
+            return new Promise(function(resolve, reject) {
+                pool.query(`
+                (select * from (select question.question_id, question.type_of_question, question.question from question,typeofexam,tag, topic where question.question_id = 
+                tag.question_id and question.question_id = typeofexam.question_id and typeofexam.type_of_exam = 'JEE-Mains' and tag.topic_id = topic.topic_id and topic.topic = 'Physics' 
+                limit 10) as q , options where  q.question_id = options.question_id) union
+                
+                (select * from (select question.question_id, question.type_of_question, question.question from question,typeofexam,tag, topic where question.question_id = 
+                tag.question_id and question.question_id = typeofexam.question_id and typeofexam.type_of_exam = 'JEE-Mains' and tag.topic_id = topic.topic_id and topic.topic = 'Chemistry' 
+                limit 10) as q , options where  q.question_id = options.question_id) union
+
+
+                (select * from (select question.question_id, question.type_of_question, question.question from question,typeofexam,tag, topic where question.question_id = 
+                tag.question_id and question.question_id = typeofexam.question_id and typeofexam.type_of_exam = 'JEE-Mains' and tag.topic_id = topic.topic_id and topic.topic = 'Maths' 
+                limit 10) as q , options where  q.question_id = options.question_id);`, (error, results) => {
+                    if(error) {
+                        reject(error)
+                    }
+                    resolve(results.rows);
+                })
+            })
+
+        case "JEE-Advanced":
+            return new Promise(function(resolve, reject) {
+                pool.query(`
+                (select * from (select question.question_id, question.type_of_question, question.question from question,typeofexam,tag, topic where question.question_id = 
+                tag.question_id and question.question_id = typeofexam.question_id and typeofexam.type_of_exam = 'JEE-Advanced' and tag.topic_id = topic.topic_id and topic.topic = 'Physics' 
+                limit 10) as q , options where  q.question_id = options.question_id) union
+                
+                (select * from (select question.question_id, question.type_of_question, question.question from question,typeofexam,tag, topic where question.question_id = 
+                tag.question_id and question.question_id = typeofexam.question_id and typeofexam.type_of_exam = 'JEE-Advanced' and tag.topic_id = topic.topic_id and topic.topic = 'Chemistry' 
+                limit 10) as q , options where  q.question_id = options.question_id) union
+
+
+                (select * from (select question.question_id, question.type_of_question, question.question from question,typeofexam,tag, topic where question.question_id = 
+                tag.question_id and question.question_id = typeofexam.question_id and typeofexam.type_of_exam = 'JEE-Advanced' and tag.topic_id = topic.topic_id and topic.topic = 'Maths' 
+                limit 10) as q , options where  q.question_id = options.question_id);`, (error, results) => {
+                    if(error) {
+                        reject(error)
+                    }
+                    resolve(results.rows);
+                })
+            })
+
+        case "BITSAT":
+            return new Promise(function(resolve, reject) {
+                pool.query(`
+                (select * from (select question.question_id, question.type_of_question, question.question from question,typeofexam,tag, topic where question.question_id = 
+                tag.question_id and question.question_id = typeofexam.question_id and typeofexam.type_of_exam = 'BITSAT' and tag.topic_id = topic.topic_id and topic.topic = 'Physics' 
+                limit 10) as q , options where  q.question_id = options.question_id) union
+                
+                (select * from (select question.question_id, question.type_of_question, question.question from question,typeofexam,tag, topic where question.question_id = 
+                tag.question_id and question.question_id = typeofexam.question_id and typeofexam.type_of_exam = 'BITSAT' and tag.topic_id = topic.topic_id and topic.topic = 'Chemistry' 
+                limit 10) as q , options where  q.question_id = options.question_id) union
+
+
+                (select * from (select question.question_id, question.type_of_question, question.question from question,typeofexam,tag, topic where question.question_id = 
+                tag.question_id and question.question_id = typeofexam.question_id and typeofexam.type_of_exam = 'BITSAT' and tag.topic_id = topic.topic_id and topic.topic = 'Maths' 
+                limit 10) as q , options where  q.question_id = options.question_id);`, (error, results) => {
+                    if(error) {
+                        reject(error)
+                    }
+                    resolve(results.rows);
+                })
+            })
+
+        case "MHCET":
+            return new Promise(function(resolve, reject) {
+                pool.query(`
+                (select * from (select question.question_id, question.type_of_question, question.question from question,typeofexam,tag, topic where question.question_id = 
+                tag.question_id and question.question_id = typeofexam.question_id and typeofexam.type_of_exam = 'MHCET' and tag.topic_id = topic.topic_id and topic.topic = 'Physics' 
+                limit 10) as q , options where  q.question_id = options.question_id) union
+                
+                (select * from (select question.question_id, question.type_of_question, question.question from question,typeofexam,tag, topic where question.question_id = 
+                tag.question_id and question.question_id = typeofexam.question_id and typeofexam.type_of_exam = 'MHCET' and tag.topic_id = topic.topic_id and topic.topic = 'Chemistry' 
+                limit 10) as q , options where  q.question_id = options.question_id) union
+
+
+                (select * from (select question.question_id, question.type_of_question, question.question from question,typeofexam,tag, topic where question.question_id = 
+                tag.question_id and question.question_id = typeofexam.question_id and typeofexam.type_of_exam = 'MHCET' and tag.topic_id = topic.topic_id and topic.topic = 'Maths' 
+                limit 10) as q , options where  q.question_id = options.question_id);`, (error, results) => {
+                    if(error) {
+                        reject(error)
+                    }
+                    resolve(results.rows);
+                })
+            })
+        default:
+            throw "UNDEFINED INPUT";
+        }
+}
+
 
 const reviewTests = (req)=>{
     const user_id = req.params.user_id;
@@ -128,4 +226,4 @@ const reviewTest = (req)=>{
 //      -> subtopics
 
 
-module.exports = {reviewTests, reviewTest};
+module.exports = {reviewTests, reviewTest, generateCustomTest, getStandardTests};

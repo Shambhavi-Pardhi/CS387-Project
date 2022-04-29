@@ -28,8 +28,7 @@ app.get("/", (req, res)=>{
 
 
 app.get("/:user_id/custom_test", (req, res)=>{
-    const question = "(502,1,\'TLKJBWRLKJT\',1,\'SCQ\')";
-    Question.addQuestion(req,question)
+    Test.generateCustomTest(req, topic, subtopic, difficulty, type_of_ques, num_ques)
         .then(response => {
             res.status(200).send(response);
             // console.log(response);
@@ -59,13 +58,58 @@ app.get("/:user_id/review_test/:test_id", (req, res)=>{
         })
 })
 
+app.get("/:qid/get_question", (req, res)=>{
+    Question.getQuestion(req)
+        .then(response => {
+            res.status(200).send(response);
+        })    
+        .catch(error => {
+            res.status(500).send(error);
+        })    
+})        
+
 app.get("/add_question", (req, res)=>{
-    const question = "(503,1,\'TLKJBWRLKJT\',1,\'SCQ\')";
+    const question = "(502,1,\'TLKJBWRLKJT\',1,\'SCQ\')";
     // const question = req.body.question;
     Question.addQuestion(req,question)
         .then(response => {
             res.status(200).send(response);
             // console.log(response);
+        })
+        .catch(error => {
+            res.status(500).send(error);
+        })
+})
+
+app.get("/:qid/delete_question", (req, res)=>{
+    Question.deleteQuestion(req)
+        .then(response => {
+            res.status(200).send(response);
+        })
+        .catch(error => {
+            res.status(500).send(error);
+        })
+})
+
+app.get("/:qid/update_question", (req, res)=>{
+    const question = "user_id=2,question=\'KJSHDFJK\',difficulty=4,type_of_question=\'MCQ\'";
+    // const question = req.body.question;
+    Question.updateQuestion(req,question)
+        .then(response => {
+            res.status(200).send(response);
+            // console.log(response);
+        })
+        .catch(error => {
+            res.status(500).send(error);
+        })
+})
+
+app.get("/standard_tests", (req, res)=>{
+    // const exam_type = req.body.exam_type;
+    const exam_type = "JEE-Mains";
+    Test.getStandardTests(req, exam_type)
+        .then(response => {
+            res.status(200).send(response);
         })
         .catch(error => {
             res.status(500).send(error);
