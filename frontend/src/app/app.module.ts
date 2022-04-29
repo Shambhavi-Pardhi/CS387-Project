@@ -14,7 +14,8 @@ import { HighchartsChartModule } from 'highcharts-angular';
 import { ViewQuesComponent } from './view-ques/view-ques.component';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
-import {MatTableModule} from '@angular/material/table'
+import {MatTableModule} from '@angular/material/table';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import {MatTableModule} from '@angular/material/table'
     MatListModule,
     MatIconModule,
     MatTableModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: '', component: AppComponent },
       { path: 'login', component: LoginComponent },

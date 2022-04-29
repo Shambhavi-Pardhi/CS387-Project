@@ -1,6 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, Directive, HostListener } from '@angular/core';
-import { text } from 'body-parser';
-
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-view-ques',
