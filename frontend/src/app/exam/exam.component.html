@@ -1,0 +1,35 @@
+exam works
+<div style = "height: 100%; width:70%; position:fixed; z-index:1; top:0; overflow-x:hidden; padding-top: 20px; left: 0; background-color: darksalmon;">
+<div class="countdown" simpleCountdown [dateTo]="curr_time" [endMessage] = "'TEST OVER'" (finish)="onfinish()"></div>
+Question {{question_number}} of {{total_questions}}
+<div class="question">
+  <p style="font-size: larger;">{{question.text}}</p>
+  <div *ngFor="let answer of question.options; let i = index" [attr.data-index]="i" class="answer">
+    <label>
+      <input type="checkbox" name="answer" [value]="i" (click)="selectAnswer(i)" [checked]="answer.selected === 1">
+      {{answer.text}}
+    </label>
+  </div>
+</div>
+<div class="actions">
+    <button class="btn btn-success" (click)="next()">Next</button>
+    <button class="btn btn-danger" (click)="prev()">Previous</button>
+  <button class="btn btn-success" (click)="submit()" [disabled]="!option_select">Submit</button>
+</div>
+</div>
+<div style = "height: 100%; width:30%; position:fixed; z-index:1; top:0; overflow-x:hidden; padding-top: 20px;right: 0; background-color: darksalmon;">
+<mat-grid-list cols = 5>
+    <mat-grid-tile *ngFor = "let question_pat of question_set">
+        <mat-card [style.background-color]="question_pat.attempt==1?'green':(question_pat.attempt==2?'blue':'yellow')">
+        <mat-card-header>
+            <mat-card-title>
+            <h1>{{question_pat.number}}</h1>
+            </mat-card-title>
+        </mat-card-header>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
+<button (click)="full_screen()"></button>
+
+<div #notif style = "position: absolute; margin: auto; background-color: rgba(0, 0, 0, 0.5); top: 50%; height: 100px; border-radius: 5px; width: 200px; display: none"></div>
+</div>

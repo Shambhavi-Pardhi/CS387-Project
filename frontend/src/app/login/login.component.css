@@ -1,0 +1,31 @@
+.bg{
+    background: url("./background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    margin: 0 !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    filter:blur(2px);
+    z-index: -1;
+}
+
+.in{
+    z-index: 1;
+    margin: auto;
+    border: 3px solid #000;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 30vw;
+    border-radius: 15px;
+    height: 62.5vh !important;
+    margin-top: 25vh;
+    align-items: center;
+}
+img{
+    margin:auto !important;
+    width: 15vw;
+    position: relative;
+    left: 7.5vw;
+}

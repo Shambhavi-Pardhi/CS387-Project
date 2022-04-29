@@ -20,7 +20,6 @@ app.get("/", (req, res)=>{
 })
 
 
-
 // app.get("/api/add_question", (req, res)=>{
 //     var x = Question.addQuestion(pool, req.body);
 //     console.log(x);
