@@ -113,3 +113,4 @@ const getQuestionStats = async (pool, question_id)=>{
 }
 
 
+module.exports = {addQuestion, updateQuestion, deleteQuestion, getQuestion, getQuestionStats};
