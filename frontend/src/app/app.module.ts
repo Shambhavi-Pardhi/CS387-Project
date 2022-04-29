@@ -19,6 +19,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { PiechartComponent } from './piechart/piechart.component';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { ViewQuesComponent } from './view-ques/view-ques.component';
+import { MatListModule } from '@angular/material/list';
+import {MatTableModule} from '@angular/material/table'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +35,15 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     FacultyComponent,
 
 
+    PiechartComponent,
+    ViewQuesComponent,
+  ],
+  exports: [
+    AppComponent, 
+    LoginComponent,
+    ExamComponent,
+    PiechartComponent, 
+    ViewQuesComponent,
   ],
   imports: [
     MatCardModule,
@@ -43,11 +58,17 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HighchartsChartModule,
+    MatListModule,
+    MatIconModule,
+    MatTableModule,
     RouterModule.forRoot([
       { path: '', component: AppComponent },
       { path: 'login', component: LoginComponent },
       { path: 'exam', component: ExamComponent },
-      { path: 'student', component:StudentComponent}
+      { path: 'student', component:StudentComponent},
+      { path: 'qid/stats', component: PiechartComponent },
+      { path: 'view-ques', component: ViewQuesComponent }
     ])
   ],
   providers: [
