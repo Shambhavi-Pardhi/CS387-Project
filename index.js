@@ -204,7 +204,7 @@ app.get("/:qid/get_question", (req, res)=>{
 })        
 
 app.get("/add_question", (req, res)=>{
-    const question = "(509,1,\'TLKJBWRLKJT\',1,\'SCQ\')";
+    const question = "(502,1,\'TLKJBWRLKJT\',1,\'SCQ\')";
     // const question = req.body.question;
     Question.addQuestion(req,question)
         .then(response => {
@@ -256,7 +256,7 @@ app.get("/:user_id/view_questions", (req, res)=>{
     Question.viewQuestions(req)
         .then(response => {
             res.status(200).send(response);
-            console.log(response);
+            // console.log(response);
         })
         .catch(error => {
             res.status(500).send(error);

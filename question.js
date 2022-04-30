@@ -1,10 +1,10 @@
 const Pool = require('pg').Pool;
 
 const pool = new Pool({
-    user: "postgres",
+    user: "cinderella",
     host: "localhost",
-    database: "DB-Project",
-    password: "sunflower050115",
+    database: "project",
+    password: "vikings",
     port: 5432,
 })
 
@@ -142,7 +142,7 @@ const getQuestionStats = async (pool, question_id)=>{
 const viewQuestions = (req)=>{
     const user_id = req.params.user_id;
     return new Promise(function(resolve, reject) {
-        pool.query(`select * from question, opt where user_id=${user_id} and opt.question_id=question.question_id`, (error, results) => {
+        pool.query(`select * from question, options as opt where user_id=${user_id} and opt.question_id=question.question_id`, (error, results) => {
             if(error) {
                 reject(error)
             }
@@ -180,7 +180,7 @@ const addQuestion = async (req, question)=>{
             if(error) {
                 reject(error)
             }
-            //resolve(results.rows);
+            resolve(results.rows);
         })
     })
 }

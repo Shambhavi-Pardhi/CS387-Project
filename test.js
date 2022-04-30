@@ -1,10 +1,10 @@
 const Pool = require('pg').Pool;
 
 const pool = new Pool({
-    user: "postgres",
+    user: "cinderella",
     host: "localhost",
-    database: "DB-Project",
-    password: "sunflower050115",
+    database: "project",
+    password: "vikings",
     port: 5432,
 })
 
@@ -203,14 +203,10 @@ const reviewTest = (req)=>{
     const test_id = req.params.test_id;
     const user_id = req.params.user_id;
     return new Promise(function(resolve, reject) {
-        pool.query(`with x as (
-            select question.question_id, question.question from question, test, attempt where test.test_id=3900 and test.user_id=8731 and test.test_id=attempt.test_id and attempt.question_id=question.question_id
-        ), y as (
-            select question.question_id, opt.options from opt, question, test, attempt where test.test_id=3900 and test.user_id=8731 and opt.question_id=question.question_id and test.test_id=attempt.test_id and attempt.question_id=question.question_id
-        ), z as (
-            select question.question_id, opt.options from opt, question, test, attempt where test.test_id=3900 and test.user_id=8731 and correct and test.test_id=attempt.test_id and attempt.question_id=opt.question_id and opt.question_id=question.question_id
-        )
-        select x.question_id, x.question, y.options, z.options as correct_ans, attempt.answergiven from x,y,z,attempt, test where test.test_id=3900 and test.user_id=8731 and test.test_id=attempt.test_id and attempt.question_id=x.question_id and x.question_id=y.question_id and y.question_id=z.question_id`, (error, results) => {
+        pool.query(`with x as ( select question.question_id, question.question from question, test, attempt where test.test_id=${test_id} and test.user_id=${user_id} and test.test_id=attempt.test_id and attempt.question_id=question.question_id
+        ), y as ( select question.question_id, opt.options from options opt, question, test, attempt where test.test_id=${test_id} and test.user_id=${user_id} and opt.question_id=question.question_id and test.test_id=attempt.test_id and attempt.question_id=question.question_id
+        ), z as ( select question.question_id, opt.options from options opt, question, test, attempt where test.test_id=${test_id} and test.user_id=${user_id} and correct and test.test_id=attempt.test_id and attempt.question_id=opt.question_id and opt.question_id=question.question_id
+        ) select x.question_id, x.question, y.options, z.options as correct_ans, attempt.answergiven from x,y,z,attempt, test where test.test_id=${test_id} and test.user_id=${user_id} and test.test_id=attempt.test_id and attempt.question_id=x.question_id and x.question_id=y.question_id and y.question_id=z.question_id`, (error, results) => {
             if(error) {
                 reject(error)
             }
