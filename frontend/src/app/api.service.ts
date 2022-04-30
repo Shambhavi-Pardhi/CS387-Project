@@ -5,7 +5,7 @@ import { HttpClient } from "@angular/common/http"
 })
 export class ApiService {
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
 
   // see the params mentioned in the backend question file. write in format shown below.
@@ -16,6 +16,7 @@ export class ApiService {
     this.httpClient.post<any>("http://localhost:8080/api/view_questions",{user_id:user_id}).subscribe( 
       (data) => {
         console.log(data);
+        return data;
       }
     );
   }
@@ -76,6 +77,9 @@ export class ApiService {
     );
   }
 
+  getUserType(auth_token:string){
+    return this.httpClient.get<any>("http://localhost:8080/api/getUserType", {params: {auth_token: auth_token}});
+  }
   reviewTest(test_id: string, user_id: string){
     this.httpClient.post<any>("http://localhost:8080/api/review_test",{test_id:test_id,user_id: user_id}).subscribe( 
       (data) => {

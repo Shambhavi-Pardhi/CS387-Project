@@ -1,0 +1,44 @@
+<p>faculty-page works!</p>
+<!DOCTYPE html>
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<body>
+
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+s
+<script>
+
+var xValues = ["Wrong Answer", "Correct Answer", "Unattempted"];
+var yValues = {{yValues}};
+var barColors = [
+  "maroon",
+  "green",
+  "#2b5797"
+];
+
+new Chart("myChart", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "Student Performance"
+    }
+  }
+});
+</script>
+
+<mat-list role="list">
+  <mat-list-item role="listitem">Average Accuracy:{{AvgAcc}}</mat-list-item>
+  <mat-list-item role="listitem">Average Response Time:{{AvgTime}}</mat-list-item>
+</mat-list>
+
+
+</body>
+</html>

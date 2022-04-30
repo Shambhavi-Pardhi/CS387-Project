@@ -9,6 +9,15 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { NgxSimpleCountdownModule } from 'ngx-simple-countdown';
 import { ApiService } from './api.service';
 import { LoggingService } from './logging.service';
+import { ProfileComponent } from './profile/profile.component';
+import { StudentComponent } from './profile/student/student.component';
+import { FacultyComponent } from './profile/faculty/faculty.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PiechartComponent } from './piechart/piechart.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { ViewQuesComponent } from './view-ques/view-ques.component';
@@ -22,6 +31,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     AppComponent,
     LoginComponent,
     ExamComponent,
+    ProfileComponent,
+    StudentComponent,
+    FacultyComponent,
     PiechartComponent,
     ViewQuesComponent,
   ],
@@ -35,8 +47,16 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
   imports: [
     MatCardModule,
     MatGridListModule,
+    MatProgressSpinnerModule,
     NgxSimpleCountdownModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatButtonModule,
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     HighchartsChartModule,
     MatListModule,
     MatIconModule,
@@ -46,6 +66,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
       { path: '', component: AppComponent },
       { path: 'login', component: LoginComponent },
       { path: 'exam', component: ExamComponent },
+      { path: 'student', component:StudentComponent},
       { path: 'qid/stats', component: PiechartComponent },
       { path: 'view-ques', component: ViewQuesComponent }
     ])

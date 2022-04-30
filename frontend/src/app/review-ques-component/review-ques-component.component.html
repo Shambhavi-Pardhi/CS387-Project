@@ -1,0 +1,14 @@
+<p>review-ques-component works!</p>
+<p>review works!</p>
+
+<div class="tests">
+  <div *ngFor="let que of tests.test_list; let i = index" [attr.data-index]="i" class="que">
+    <mat-nav-list>
+      <div class="form-group">
+        <a mat-list-item href="http://localhost:4200/qid/testid" > {{que.text}} </a>
+  </div>
+    </mat-nav-list>
+  </div>
+</div>
+
+

@@ -164,6 +164,14 @@ const getQuestion = async (req)=>{
 }
 
 const addQuestion = async (req, question)=>{
+
+    // const topic = req.body.topic;
+    // const subtopic = req.body.subtopic;
+    // const difficulty = req.body.difficulty;
+    // const type_of_ques = req.body.type_of_ques;
+    // const num_ques = req.body.num_ques;
+
+    // const question2 = "(" + topic + "," + subtopic + "," + difficulty + "," + type_of_ques + "," + num_ques + ")";
     if(question == undefined){
         throw "UNDEFINED INPUT";
     }

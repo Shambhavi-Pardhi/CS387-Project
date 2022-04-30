@@ -1,0 +1,143 @@
+.page{
+    width: 100vw;
+    height: 100vh;
+    position:absolute;
+    left: 0;
+    top: 0;
+    overflow-x: hidden;
+    z-index: -1;
+    
+}
+
+.top{
+    
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(to bottom, rgba(0,0,0, 0.9), rgba(0,0,0, 0.9)), url("bg1.jpg");
+    background-image: -moz-linear-gradient(top, rgba(0,0,0, 0.9), rgba(0,0,0, 0.9)), url("bg1.jpg");
+    background-image: -o-linear-gradient(top, rgba(0,0,0, 0.9), rgba(0,0,0, 0.9)), url("bg1.jpg");
+    background-image: -ms-linear-gradient(top, rgba(0,0,0, 0.9), rgba(0,0,0, 0.9)), url("bg1.jpg");
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0, 0.9)), to(rgba(0,0,0, 0.9))), url("bg1.jpg");
+    background-image: -webkit-linear-gradient(top, rgba(0,0,0, 0.9), rgba(0,0,0, 0.9)), url("bg1.jpg");
+}
+
+.custom{
+    position: relative;
+    top: 0vh;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: #0b345d;
+  background-image: linear-gradient(155deg, #002f62 0%, #18496a 50%, #138b89 100%);
+  background-repeat: no-repeat;
+  z-index:1;
+}
+
+.standard{
+    position: absolute;
+    top: 100vh;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index:-1;
+
+}
+
+.result{
+    position: absolute;
+    top: 200vh;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+
+
+mat-grid-tile a{
+    color: white;
+    text-decoration: none;
+}
+
+
+
+#customcard{
+    background-image: linear-gradient(to bottom, rgba(139,0,139, 0.9), rgba(139,0,139, 0.9)), url("bg1.jpg");
+    background-image: -moz-linear-gradient(top, rgba(139,0,139, 0.9), rgba(139,0,139, 0.9)), url("bg1.jpg");
+    background-image: -o-linear-gradient(top, rgba(139,0,139, 0.9), rgba(139,0,139, 0.9)), url("bg1.jpg");
+    background-image: -ms-linear-gradient(top, rgba(139,0,139, 0.9), rgba(139,0,139, 0.9)), url("bg1.jpg");
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(139,0,139, 0.9)), to(rgba(139,0,139, 0.9))), url("bg1.jpg");
+    background-image: -webkit-linear-gradient(top, rgba(139,0,139, 0.9), rgba(139,0,139, 0.9)), url("bg1.jpg");
+    width: 20vw;
+    height: 20vw;
+    border-radius: 10%;
+    z-index: 1;
+    text-decoration: none !important;
+
+}
+
+
+#standardcard{
+    background-image: linear-gradient(to bottom, rgba(46,139,87, 0.9), rgba(46,139,87, 0.9)), url("bg1.jpg");
+    background-image: -moz-linear-gradient(top, rgba(46,139,87, 0.9), rgba(46,139,87, 0.9)), url("bg1.jpg");
+    background-image: -o-linear-gradient(top, rgba(46,139,87, 0.9), rgba(46,139,87, 0.9)), url("bg1.jpg");
+    background-image: -ms-linear-gradient(top, rgba(46,139,87, 0.9), rgba(46,139,87, 0.9)), url("bg1.jpg");
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(46,139,87, 0.9)), to(rgba(46,139,87, 0.9))), url("bg1.jpg");
+    background-image: -webkit-linear-gradient(top, rgba(46,139,87, 0.9), rgba(46,139,87, 0.9)), url("bg1.jpg");
+    width: 20vw;
+    height: 20vw;
+    border-radius: 10%;
+    z-index: 1;
+    text-decoration: none !important;
+
+}
+
+
+#resultscard{
+    background-image: linear-gradient(to bottom, rgba(0,0,139, 0.9), rgba(0,0,139, 0.9)), url("bg1.jpg");
+    background-image: -moz-linear-gradient(top, rgba(0,0,139, 0.9), rgba(0,0,139, 0.9)), url("bg1.jpg");
+    background-image: -o-linear-gradient(top, rgba(0,0,139, 0.9), rgba(0,0,139, 0.9)), url("bg1.jpg");
+    background-image: -ms-linear-gradient(top, rgba(0,0,139, 0.9), rgba(0,0,139, 0.9)), url("bg1.jpg");
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,139, 0.9)), to(rgba(0,0,139, 0.9))), url("bg1.jpg");
+    background-image: -webkit-linear-gradient(top, rgba(0,0,139, 0.9), rgba(0,0,139, 0.9)), url("bg1.jpg");
+    width: 20vw;
+    height: 20vw;
+    border-radius: 10%;
+    z-index: 1;
+    text-decoration: none !important;
+
+}
+
+mat-card-header{
+    margin: auto;
+    font-size: 40px;
+    margin-top: 40%;
+    color: white;
+    position: relative;
+    top: 10vw;
+}
+mat-card-content{
+    margin: auto;
+    font-size: 20px;
+    margin-top: 10%;
+    color: white;
+    position: relative;
+    top: 10vw;
+}
+
+#text {
+    font-size: 7.6vw;
+  }
+
+.box{
+    position: relative;
+    top: 25vh;
+    left: 25vw;
+    width: 50vw;
+    height: 50vh;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.5);
+    border: rgb(0,0,0) solid 5px;
+    z-index: 1;
+}
