@@ -1,0 +1,16 @@
+question_id,options,correct
+1,11,True
+1,12,False
+1,22,False
+1,45,False
+2,8P8,True
+2,8!/0!,True
+2,8!/8!,False
+2,40320,True
+3,Alpha Decay,True
+3,Gamma Decay,False
+3,Beta Decay,False
+3,Neutron Decay,False
+4,372,True
+5,True,True
+6,2,True

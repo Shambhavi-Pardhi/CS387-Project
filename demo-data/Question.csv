@@ -1,0 +1,7 @@
+question_id,user_id,question,difficulty,type_of_question
+1,1,There are 47 boys in the class. This is three more than four times the number of girls. How many girls are there in the class?,3,SCQ
+2,1,How many words, with or without meaning, can be formed using all the letters of the word EQUATION, using each letter exactly once?,5,MCQ
+3,1,Which of the following decay processes results in the largest change in mass of a nucleus?,5,SCQ
+4,1,A Carnot engine operating between temperatures T1 and T2 has efficiency 1/6. When T2 is lowered by 62 K, its efficiency increases to ⅓. Then T1 is?,8,IntegerType
+5,1,Is Ferrous sulphate light green in color?,5,True/False
+6,1,What is the oxidation number of Hg in iodide of Millon's base?,9,IntegerType
