@@ -25,6 +25,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ReviewComponent } from './review/review.component';
+import { ReviewQuesComponentComponent } from './review-ques-component/review-ques-component.component';
+import { Form1Component } from './form1/form1.component';
+
 
 @NgModule({
   declarations: [
@@ -36,6 +40,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     FacultyComponent,
     PiechartComponent,
     ViewQuesComponent,
+    ReviewComponent, 
+    ReviewQuesComponentComponent,
+    Form1Component,
   ],
   exports: [
     AppComponent, 
@@ -68,7 +75,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
       { path: 'exam', component: ExamComponent },
       { path: 'student', component:StudentComponent},
       { path: 'qid/stats', component: PiechartComponent },
-      { path: 'view-ques', component: ViewQuesComponent }
+      { path: 'view-ques', component: ViewQuesComponent },
+      { path: 'review-ques', component: ReviewQuesComponentComponent },
+      { path: 'review', component: ReviewComponent },
+      { path: 'form', component: Form1Component }
     ])
   ],
   providers: [
